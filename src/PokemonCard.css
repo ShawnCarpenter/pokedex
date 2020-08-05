@@ -1,0 +1,11 @@
+li {
+    list-style: none;
+    border:3px solid darkred;
+    display: flex;
+    flex-direction: column;
+    max-width: 20%;
+    margin: .5%;
+}
+img {
+    max-width: 90%;
+}
