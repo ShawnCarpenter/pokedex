@@ -12,7 +12,7 @@ export default class App extends Component {
 
 
   catchEm = async () => {
-    const data =  await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.search}&page=3&perPage=27`)
+    const data =  await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.search}&perPage=100`)
     this.setState({data: data.body.results})
   }
 
