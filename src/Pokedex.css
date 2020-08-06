@@ -2,4 +2,6 @@ ul {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: hsla(170, 28%, 95%, 1);
+    justify-self: stretch;
 }
