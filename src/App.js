@@ -12,22 +12,31 @@ export default class App extends Component {
 
 
   catchEm = async () => {
-    const data =  await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.search}&perPage=1000`)
+    const data =  await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.search}&page=3&perPage=27`)
     this.setState({data: data.body.results})
-    console.log(this.state.data)
   }
 
   searchParams = (e) => {
     this.setState({search:e.target.value})
+    console.log(this.state)
+    this.catchEm();
   }
 
-
+  componentDidMount = async () => {
+    this.catchEm();
+    // const typeData = await request.get('https://alchemy-pokedex.herokuapp.com/api/pokedex/types')
+    // this.setState({typeData:typeData.body})
+  }
   render() {
     
     return (
-      <div>
-        <Search onClick={this.catchEm} onChange={this.searchParams}/>
-        <Pokedex data={this.state.data}/>
+      <div className='App'>
+        <header className='App-header'><h1>Gotta Catch em all</h1></header>
+        <div className='container'>
+          <Search typeList={this.state.typeData} onClick={this.catchEm} onChange={this.searchParams} />
+          <Pokedex data={this.state.data}/>
+        </div>
+        
       </div>
     )
   }
