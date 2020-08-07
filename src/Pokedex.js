@@ -7,7 +7,7 @@ export default class Pokedex extends Component {
         return (
             <ul>
                 {
-                    this.props.data ? this.props.data.map(pokemon => <PokemonCard key={pokemon._id} pokemon={pokemon} />) : <li>Loading</li>
+                    this.props.data ? this.props.data.map(pokemon => <PokemonCard key={pokemon._id} pokemon={pokemon} />) : <li className='loading'></li>
                 }
                 
             </ul>

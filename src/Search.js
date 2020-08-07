@@ -5,7 +5,6 @@ export default class Search extends Component {
     
     render() {
 
-        console.log(this.props)
         return (
             <div className='searchBar'>
                 <div className='searchBox' >
