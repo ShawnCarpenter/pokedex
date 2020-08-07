@@ -5,8 +5,8 @@ import {
     Switch,
 } from 'react-router-dom'
 
-import SearchPage from'./SearchPage'
-import Details from './Details/Details'
+import SearchPage from './SearchPage/SearchPage';
+import Details from './Details/Details';
 
 
 
