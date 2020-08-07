@@ -25,7 +25,6 @@ export default class SearchPage extends Component {
     if(searchBy !== 'pokemon'){
       const optionList = await getSearchOptions(searchBy)
       this.setState({ searchBy, optionList })
-      console.log(this.state)
     } else this.setState({ searchBy, optionList: null })
 
   }
