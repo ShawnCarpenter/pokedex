@@ -1,6 +1,7 @@
 li {
     list-style: none;
     border:3px solid darkred;
+    justify-self: stretch;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;

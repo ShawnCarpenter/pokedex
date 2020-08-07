@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: hsla(170, 28%, 95%, 1);
+  color: #316ab2;
 
 }
 
@@ -78,6 +79,12 @@ a {
     transform: rotate(360deg);
   }
 }
+.searchBar {
+  justify-self: stretch;
+  padding: 1%;
+  color: #316ab2;
+  min-width: 175px;
+}
 
 input, button, select {
   border-radius: 5%;
@@ -85,4 +92,10 @@ input, button, select {
   margin: 1.5%;
   padding: 1.5%;
   background-color:#ffcb05
+}
+.searchBar li {
+  list-style: none;
+  border: none;
+  font-size: medium;
+  color: #316ab2;
 }
