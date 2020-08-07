@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: hsla(170, 28%, 95%, 1);
+  color: #316ab2;
 
 }
 
@@ -54,4 +55,47 @@ h1 {
   font-size: 52px;
   font-family: pokemon-outline;
   font-weight: bolder;
+}
+
+a {
+  color: #316ab2;
+}
+
+.loading {
+  background-image: url('./Pokeball.png');
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin:15% 5% 5% 20%;
+  background-repeat: no-repeat;
+  animation: spin infinite 5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.searchBar {
+  justify-self: stretch;
+  padding: 1%;
+  color: #316ab2;
+  min-width: 175px;
+}
+
+input, button, select {
+  border-radius: 5%;
+  border: 2px solid #316ab2;
+  margin: 1.5%;
+  padding: 1.5%;
+  background-color:#ffcb05
+}
+.searchBar li {
+  list-style: none;
+  border: none;
+  font-size: medium;
+  color: #316ab2;
 }
