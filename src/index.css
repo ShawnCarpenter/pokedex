@@ -59,3 +59,30 @@ h1 {
 a {
   color: #316ab2;
 }
+
+.loading {
+  background-image: url('./Pokeball.png');
+  width: 400px;
+  height: 400px;
+  position: relative;
+  margin:15% 5% 5% 20%;
+  background-repeat: no-repeat;
+  animation: spin infinite 5s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input, button, select {
+  border-radius: 5%;
+  border: 2px solid #316ab2;
+  margin: 1.5%;
+  padding: 1.5%;
+  background-color:#ffcb05
+}

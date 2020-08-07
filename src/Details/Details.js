@@ -8,10 +8,7 @@ export default class Details extends Component {
         const name = this.props.match.params.pokemon;
         this.setState({loading: true})
         const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${name}`);
-
-        console.log(data)
         const pokemon = data.body.results[0];
-        console.log(pokemon)
         this.setState({ pokemon})
         this.setState({loading: false})
     }
@@ -19,7 +16,7 @@ export default class Details extends Component {
         const {
             pokemon,
         } = this.state
-        console.log(pokemon)
+
         return (
             <div>
                 {
@@ -27,8 +24,16 @@ export default class Details extends Component {
                         <div className='displayPage'> 
                             <h1>{pokemon.pokemon}</h1>
                             <img src= {pokemon.url_image} alt={pokemon.pokemon} />
+                            <div className='infoBox'>
+                                <p>Type 1: {pokemon.type_1}</p>
+                                <p>Type 2: {pokemon.type_2}</p>
+                                <p>Ability 1: {pokemon.ability_1}</p>
+                                <p>Ability 2: {pokemon.ability_2}</p>
+                                <p>Hidden Ability: {pokemon.ability_hidden}</p>
+
+                            </div>
                         </div>
-                    : <h1>Loading</h1>
+                    : <div className='loading'></div>
                 }
             </div>
         )
