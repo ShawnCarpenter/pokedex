@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
+import './Details.css';
 
 export default class Details extends Component {
     state = {loading:true }
@@ -16,15 +17,20 @@ export default class Details extends Component {
         const {
             pokemon,
         } = this.state
-
+        const borderStyle = pokemon && {
+            borderColor:pokemon.color_1
+        } 
+        const detailsBorder = pokemon && {
+            borderColor:pokemon.color_2==='NA'? '#316ab2' : pokemon.color_2
+        }
         return (
-            <div>
+            <div className='detailsPage'>
                 {
                     pokemon ?
-                        <div className='displayPage'> 
+                        <div className='detailsContainer' style={borderStyle}> 
                             <h1>{pokemon.pokemon}</h1>
                             <img src= {pokemon.url_image} alt={pokemon.pokemon} />
-                            <div className='infoBox'>
+                            <div className='detailsInfo' style={detailsBorder}>
                                 <p>Type 1: {pokemon.type_1}</p>
                                 <p>Type 2: {pokemon.type_2}</p>
                                 <p>Ability 1: {pokemon.ability_1}</p>
