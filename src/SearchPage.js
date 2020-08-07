@@ -26,7 +26,7 @@ export default class SearchPage extends Component {
       const optionList = await getSearchOptions(searchBy)
       this.setState({optionList, searchBy})
       console.log(this.state)
-    }
+    } else this.setState({ searchBy, optionList: null })
 
   }
 
