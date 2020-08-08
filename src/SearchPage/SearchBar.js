@@ -2,12 +2,18 @@ import React, { Component } from 'react'
 
 export default class SearchBar extends Component {
     render() {
+        console.log(this.props)
+        // const {
+        //     onSubmit,
+
+        // } = this.props
         return (
             <div className='searchBar'>
                 <div className='searchBox' >
+                    <form onSubmit={this.props.onSubmit}>
                     <p>Search By 
-                       <select onChange={this.props.getSearchChoice }>
-                          <option value="pokemon" defaultValue>Name</option>
+                       <select onChange={this.props.getSearchChoice} selected={this.props.searchBy}>
+                          <option value="pokemon" >Name</option>
                           <option value="type">Type</option>
                           <option value="ability">Ability</option>
                           <option value="shape">Shape</option>
@@ -15,14 +21,15 @@ export default class SearchBar extends Component {
                       </select>
                     </p>
                     <p>Sort By 
-                       <select onChange={this.props.getSortBy}>
-                          <option value="pokemon" defaultValue>Name</option>
+                       <select onChange={this.props.getSortChoice} selected={this.props.sortBy}>
+                          <option value="pokemon" >Name</option>
                           <option value="type">Type</option>
                           <option value="ability">Ability</option>
                       </select>
                     </p>
-                    <input onChange={this.props.getSearchTerm}></input>
-                    <button onClick={this.props.catchEm}>CatchEm </button>
+                    <input onChange={this.props.getSearchTerm} defaultValue={this.props.search}></input>
+                    <button type="submit" onClick={this.props.onSubmit}>CatchEm </button>
+                    </form>
                 </div>
                 <ul>
                   {

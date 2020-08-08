@@ -68,7 +68,7 @@ a {
   position: relative;
   margin:15% 5% 5% 20%;
   background-repeat: no-repeat;
-  animation: spin infinite 5s linear;
+  animation: spin infinite 3s linear;
 }
 
 @keyframes spin {
