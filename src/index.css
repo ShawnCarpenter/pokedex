@@ -66,17 +66,22 @@ a {
   width: 400px;
   height: 400px;
   position: relative;
-  margin:15% 5% 5% 20%;
+  margin:0;
   background-repeat: no-repeat;
+  background-size: contain;
   animation: spin infinite 3s linear;
 }
 
 @keyframes spin {
   from {
     transform: rotate(0deg);
+    top:0vh;
+    left: 0vw;
   }
   to {
     transform: rotate(360deg);
+    top: 100vh;
+    left: 100vw;
   }
 }
 .searchBar {
@@ -92,10 +97,4 @@ input, button, select {
   margin: 1.5%;
   padding: 1.5%;
   background-color:#ffcb05
-}
-.searchBar li {
-  list-style: none;
-  border: none;
-  font-size: medium;
-  color: #316ab2;
 }

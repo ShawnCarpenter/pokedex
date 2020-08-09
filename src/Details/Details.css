@@ -7,15 +7,15 @@
 .detailsContainer {
     border: 5px solid;
     border-radius: 5%;
-    margin-top: 10%;
+    margin-top: 5%;
     min-width: 50%;
 }
 
 .detailsContainer h1 {
-    padding:0% 5% 0% 5%;
+    padding:5% 5% 0% 5%;
 }
 .detailsInfo {
-    border-top: 2px solid darkred;
+    border-top: 2px solid;
     display: grid;
     grid-template-columns: repeat(2, 45%);
     align-items: stretch;

@@ -1,9 +1,0 @@
-.pokeList{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: flex-start;
-    background-color: hsla(170, 28%, 95%, 1);
-    /* justify-self: stretch; */
-}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import request from 'superagent';
-import Pokedex from '../Pokedex';
+import Pokedex from '../Pokedex/Pokedex';
 import { getSearchOptions } from '../Utils';
 import SearchBar from './SearchBar';
 
@@ -11,53 +11,51 @@ export default class SearchPage extends Component {
     data: '',
     search: '',
     searchBy: 'pokemon',
-    sortBy: '',
+    sortBy: 'pokemon',
     optionList: null,
     currentPage: 1,
     totalPages: 1,
   }
+
   componentDidMount = async () => {
     const params = new URLSearchParams(this.props.location.search);
     const searchBy = params.get('searchBy');
     const page = params.get('page');
     const search = params.get('search');
-    console.log(page)
-    console.log(searchBy)
-    console.log(search)
-    if(searchBy && page && search) {
+    const sortBy = params.get('sortBy')
+    
+    if(searchBy && page && search && sortBy) {
       await this.setState({
         searchBy: searchBy,
-        currentPage: page,
+        currentPage:Number(page),
         search: search,
+        sortBy: sortBy
       })
     }
-    await this.catchEm();
+        await this.catchEm();
     
   }
+
   catchEm = async () => {
     await this.setState({isLoading:true})
 
-    
     const queryString= `https://alchemy-pokedex.herokuapp.com/api/pokedex?${this.state.searchBy}=${this.state.search}&sort=${this.state.sortBy}&perPage=20&page=${this.state.currentPage}`;
-
-    
+ 
     const res =  await request.get(queryString)
    
-    
-
     await this.setState({ 
       data: res.body.results,
       totalPages: Math.ceil(res.body.count / 20),
       isLoading: false,
-     })
+    })
      
-     const params = new URLSearchParams(this.props.location.search);
-
-     await params.set('search', this.state.search);
-     await params.set('searchBy', this.state.searchBy);
-     await params.set('page', this.state.currentPage);
-
-          this.props.history.push('?' + params.toString())
+    const params = new URLSearchParams(this.props.location.search);
+    
+    await params.set('search', this.state.search);
+    await params.set('searchBy', this.state.searchBy);
+    await params.set('page', this.state.currentPage);
+    await params.set('sortBy', this.state.sortBy);
+        this.props.history.push('?' + params.toString())
   }
 
   getSearchChoice = async (e) => {
@@ -68,10 +66,12 @@ export default class SearchPage extends Component {
     } else
      await this.setState({ searchBy, optionList: null })
   }
+
   getSortChoice = async (e) => {
     const sortBy = e.target.value;
     await this.setState({sortBy})
   }
+
   getSearchTerm = async (e) => {
     await this.setState({search:e.target.value})
   }
@@ -81,9 +81,23 @@ export default class SearchPage extends Component {
     await this.setState({currentPage:1})
     await this.catchEm();
   }
- buttonClick = async () => {
-   await this.catchEm();
- }
+
+  pageButtonClick = async (e) => {
+        const buttonClicked = e.target.value;
+    console.log(buttonClicked)
+        console.log(this.currentPage)
+      switch (buttonClicked){
+        case 'prev' :
+          await this.setState({currentPage: Number(this.state.currentPage) - 1});
+          break;
+        case 'next' :
+          await this.setState({currentPage: Number(this.state.currentPage) + 1})
+          break;
+        default :
+          await this.setState({currentPage: Number(buttonClicked)})
+      }
+    await this.catchEm();
+  } 
 
   render() {
     return (
@@ -91,7 +105,7 @@ export default class SearchPage extends Component {
         <header className='App-header'><h1>Gotta Catch em all</h1></header>
         <div className='container'>
           <SearchBar 
-            onSubmit={this.formHandler}
+            formHandler={this.formHandler}
             getSearchTerm={this.getSearchTerm}
             getSearchChoice={this.getSearchChoice}
             getSortChoice={this.getSortChoice}
@@ -100,7 +114,11 @@ export default class SearchPage extends Component {
             search={this.state.search}
             optionList={this.state.optionList}
             />
-          <Pokedex data={this.state.data}/>
+          <Pokedex 
+            data={this.state.data}
+            pageButtonClick={this.pageButtonClick}
+            totalPages={this.state.totalPages}
+          />
         </div>
         
       </div>
