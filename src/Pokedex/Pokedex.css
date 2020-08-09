@@ -21,11 +21,22 @@
 }
 
 .pageList button {
-    width: 10%;
     border: none;
     font-family: pokemon;
     font-size: xx-large;
     background-color: hsla(170, 28%, 95%, 1);
     color: #316ab2;
+    padding: 1vmax;
   
+}
+
+.pageList button:hover {
+    color: darkred;
+}
+
+.pageList button:disabled {
+    color: grey;
+}
+.pageList button:active {
+    border: none;
 }
