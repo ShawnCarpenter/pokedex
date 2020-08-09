@@ -118,6 +118,7 @@ export default class SearchPage extends Component {
             data={this.state.data}
             pageButtonClick={this.pageButtonClick}
             totalPages={this.state.totalPages}
+            currentPage={this.state.currentPage}
           />
         </div>
         
