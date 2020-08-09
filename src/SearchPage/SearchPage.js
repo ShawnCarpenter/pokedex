@@ -76,7 +76,7 @@ export default class SearchPage extends Component {
   getSearchTerm = async (e) => {
     await this.setState({search:e.target.value})
     if(this.state.searchBy=== 'pokemon') {
-      await this.setState({currentPage: 1})
+      if (!this.search) await this.setState({currentPage: 1})
       await this.catchEm();
     }
   }
