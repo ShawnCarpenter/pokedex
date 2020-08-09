@@ -52,9 +52,10 @@ header {
 }
 
 h1 {
-  font-size: 52px;
+  font-size: 5vmax;
   font-family: pokemon-outline;
   font-weight: bolder;
+  letter-spacing: .75vmin;
 }
 
 a {

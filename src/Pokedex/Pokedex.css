@@ -10,20 +10,21 @@
     width: 100%;
     flex-direction: row;
     align-items: stretch;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    justify-items: stretch;
 }
 .pageList li {
     display: inline;
     border: none;
     font-family: pokemon;
-    font-size: 3vmin;
     margin: 1vmin;
 }
 
 .pageList button {
     border: none;
     font-family: pokemon;
-    font-size: xx-large;
+    font-size: 105%;
+    letter-spacing: 3px;
     background-color: hsla(170, 28%, 95%, 1);
     color: #316ab2;
     padding: 1vmax;
@@ -31,7 +32,7 @@
 }
 
 .pageList button:hover {
-    color: darkred;
+    text-shadow: 5px 5px 4px #316ab2;
 }
 
 .pageList button:disabled {

@@ -4,19 +4,35 @@ import './Pokedex.css';
 
 export default class Pokedex extends Component {
     render() {
+        const {
+            currentPage,
+            totalPages,
+            pageButtonClick
+        } = this.props;
+
         const pageArray = []
 
         for(let i=1; i <= this.props.totalPages; i++ ){
-            pageArray.push(i)
+            
+            if(i >= (currentPage-3) && i <= (currentPage+3) )pageArray.push(i)
         }
         console.log(pageArray)
+        
         return (
             <div>
             <ul className='pageList'>
+                { totalPages ? <>
+                    <li><button key='prev' value="prev" onClick={pageButtonClick} disabled={currentPage > 1 ? false : true}>&lt;</button></li>
+                    {
+                        pageArray.map(page =>{
+                           return  <li key={page}><button>{page}</button></li>
+                        }) 
+                    }
+                    
+                    <li><button key='next' value="next" onClick={pageButtonClick}disabled={currentPage < totalPages ? false : true}>&gt;</button></li>
+                    </> : <h1>No results, try another search</h1>
+                }
                 
-                <li><button key='prev' value="prev" onClick={this.props.pageButtonClick} disabled={this.props.currentPage>1 ? false : true}>&lt;</button></li>
-                <li key='pageNumber'>Page {this.props.currentPage} of {this.props.totalPages}</li>
-                <li><button key='next' value="next" onClick={this.props.pageButtonClick}disabled={this.props.currentPage < this.props.totalPages ? false : true}>&gt;</button></li>
             </ul>
             <ul className='pokeList'>
                 {
