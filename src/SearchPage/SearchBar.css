@@ -1,0 +1,13 @@
+.optionList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.searchBar li {
+    list-style: none;
+    border: none;
+    font-size: medium;
+    color: #316ab2;
+    margin-left: .5vmin;
+  }

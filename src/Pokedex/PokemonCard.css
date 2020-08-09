@@ -1,4 +1,4 @@
-li {
+.pokemonCard {
     list-style: none;
     border:3px solid darkred;
     justify-self: stretch;
@@ -8,11 +8,16 @@ li {
     align-items: center;
     min-width: 15%;
     max-width: 200px;
-    margin: .5%;
+    margin: .5vmin;
     border-radius: 3%;
 }
 img {
     max-width: 90%;
+    filter: drop-shadow(5px 5px 3px);
+}
+
+img:hover {
+    filter: drop-shadow(10px 10px 8px);
 }
 
 h2 {
@@ -22,7 +27,7 @@ h2 {
     padding: .5%;
     display: flex;
     flex-direction: column;
-    border: 2px solid  #ffcb05;
+    border: 2px solid;
     border-radius: 5%;
     align-self: stretch;
 }
