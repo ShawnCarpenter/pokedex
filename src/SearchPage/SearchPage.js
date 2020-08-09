@@ -70,10 +70,15 @@ export default class SearchPage extends Component {
   getSortChoice = async (e) => {
     const sortBy = e.target.value;
     await this.setState({sortBy})
+    await this.catchEm();
   }
 
   getSearchTerm = async (e) => {
     await this.setState({search:e.target.value})
+    if(this.state.searchBy=== 'pokemon') {
+      await this.setState({currentPage: 1})
+      await this.catchEm();
+    }
   }
 
   formHandler = async (e) => {
