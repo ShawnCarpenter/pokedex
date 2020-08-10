@@ -31,9 +31,8 @@ code {
 header {
   background-color: #ffcb05;
   color: #316ab2;
-  top: -21px;
   padding-top: 2.5%;
-  height: 120px;
+  height: 11vmax;
   width: 100%;
   position: relative;
   display: flex;

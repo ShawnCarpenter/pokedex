@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import request from 'superagent';
+import request  from 'superagent';
 import Pokedex from '../Pokedex/Pokedex';
 import { getSearchOptions } from '../Utils';
 import SearchBar from './SearchBar';
@@ -87,6 +87,11 @@ export default class SearchPage extends Component {
     await this.catchEm();
   }
 
+  optionButtonClick = async (e) => {
+    await this.setState({search: e.target.value, currentPage:1})
+    await this.catchEm();
+  }
+
   pageButtonClick = async (e) => {
         const buttonClicked = e.target.value;
     console.log(buttonClicked)
@@ -114,6 +119,7 @@ export default class SearchPage extends Component {
             getSearchTerm={this.getSearchTerm}
             getSearchChoice={this.getSearchChoice}
             getSortChoice={this.getSortChoice}
+            optionButtonClick={this.optionButtonClick}
             searchBy={this.state.searchBy}
             sortBy={this.state.sortBy}
             search={this.state.search}
