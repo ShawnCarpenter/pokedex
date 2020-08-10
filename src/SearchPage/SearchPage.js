@@ -76,26 +76,24 @@ export default class SearchPage extends Component {
   getSearchTerm = async (e) => {
     await this.setState({search:e.target.value})
     if(this.state.searchBy=== 'pokemon') {
-      if (!this.search) await this.setState({currentPage: 1})
+      await this.setState({currentPage: 1})
       await this.catchEm();
     }
   }
 
   formHandler = async (e) => {
     e.preventDefault();
-    await this.setState({currentPage:1})
+    await this.setState({currentPage: 1})
     await this.catchEm();
   }
 
   optionButtonClick = async (e) => {
-    await this.setState({search: e.target.value, currentPage:1})
+    await this.setState({search: e.target.value, currentPage: 1})
     await this.catchEm();
   }
 
   pageButtonClick = async (e) => {
-        const buttonClicked = e.target.value;
-    console.log(buttonClicked)
-        console.log(this.currentPage)
+      const buttonClicked = e.target.value;
       switch (buttonClicked){
         case 'prev' :
           await this.setState({currentPage: Number(this.state.currentPage) - 1});
