@@ -15,7 +15,6 @@ export default class Pokedex extends Component {
         for(let i=1; i <= this.props.totalPages; i++ ){
             if(i >= (currentPage-3) && i <= (currentPage+3)) pageArray.push(i)
         }
-        console.log(pageArray)
         
         return (
             <div className='pokedexContainer'>
